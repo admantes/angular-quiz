@@ -18,8 +18,8 @@ export class MainComponent implements OnInit {
     //alert("setting webcam");
 
     Webcam.set({
-			width: 320,
-			height: 240,
+			width: 240,
+			height: 220,
 			image_format: 'jpeg',
 			jpeg_quality: 90
 		});
