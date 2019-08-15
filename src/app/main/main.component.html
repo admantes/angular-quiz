@@ -14,11 +14,8 @@
                       </div>
           </div>
           <div class="col-8  ">
-                <ul class="list-group">
-                        <li class="list-group-item"> {{choices[0]}}</li>
-                        <li class="list-group-item">Dapibus ac facilisis in</li>
-                        <li class="list-group-item">Morbi leo risus</li>
-                        <li class="list-group-item">Porta ac consectetur ac</li>
+                <ul class="list-group" *ngFor="let choice of choices[questionIndex]">
+                        <li class="list-group-item"> {{choice}}</li>                      
                   
                       </ul>
           </div>

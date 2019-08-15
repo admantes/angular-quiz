@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import * as Webcam from 'webcamjs';
 
 @Component({
@@ -8,9 +8,17 @@ import * as Webcam from 'webcamjs';
 })
 export class MainComponent implements OnInit {
   choices;
+  answers;
+  questionIndex;
 
   constructor() { 
-    this.choices = ["This is choice 1 of 4"];
+    this.questionIndex = 0;
+    this.choices = [
+      [ "Answer", "Choice1", "Choice2", "Choice2"] ,
+      [ "Choice3", "Choice1", "Choice2", "Answer"] 
+      ];
+
+      this.answers = [ 0, 4 ];
     
   }
 
@@ -24,6 +32,10 @@ export class MainComponent implements OnInit {
 			jpeg_quality: 90
 		});
 		Webcam.attach( '#my_camera' );
+  }
+
+  nextQuestion(inc){
+    alert(inc);
   }
 
   ngOnInit() {
