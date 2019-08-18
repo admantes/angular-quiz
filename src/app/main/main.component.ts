@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, QueryList} from '@angular/core';
 import * as Webcam from 'webcamjs';
 
 @Component({
@@ -7,18 +7,11 @@ import * as Webcam from 'webcamjs';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  choices;
-  answers;
-  questionIndex;
-
+  @Input() choices;
+  @Input() answers;
+  @Input() questionIndex;
+  
   constructor() { 
-    this.questionIndex = 0;
-    this.choices = [
-      [ "Answer", "Choice1", "Choice2", "Choice2"] ,
-      [ "Choice3", "Choice1", "Choice2", "Answer"] 
-      ];
-
-      this.answers = [ 0, 4 ];
     
   }
 
@@ -34,9 +27,7 @@ export class MainComponent implements OnInit {
 		Webcam.attach( '#my_camera' );
   }
 
-  nextQuestion(inc){
-    alert(inc);
-  }
+ 
 
   ngOnInit() {
     this.enableCam();
