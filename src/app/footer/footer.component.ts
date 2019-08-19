@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   @Output() nextQuestion: EventEmitter<number>  = new EventEmitter();
+@Input() totalQuestions;
+@Input() questionIndex;
 
   constructor() { }
 
@@ -14,7 +16,6 @@ export class FooterComponent implements OnInit {
   }
 
   onNextQuestion(){
-    alert("test");
     this.nextQuestion.emit(1);
   }
 

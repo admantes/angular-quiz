@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, QueryList} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit} from '@angular/core';
 import * as Webcam from 'webcamjs';
 
 @Component({
@@ -10,9 +10,15 @@ export class MainComponent implements OnInit {
   @Input() choices;
   @Input() answers;
   @Input() questionIndex;
-  
+  @Input() totalQuestions;
+  @Input() finished;
+  @Output() clickAnswer: EventEmitter<object>  = new EventEmitter();
+ 
+  @Input() selectedIndex;
+
   constructor() { 
-    
+   
+    this.selectedIndex = 0;
   }
 
   enableCam(){
@@ -30,7 +36,24 @@ export class MainComponent implements OnInit {
  
 
   ngOnInit() {
+    
+
+    
+  }
+
+  ngAfterViewInit(){
     this.enableCam();
   }
+
+  clickChoice(e){
+    // alert(e.target.id);
+    
+   // this.selectedIndex = parseInt(e.target.id.replace("choice",""));
+   // alert(this.selectedIndex);
+     this.clickAnswer.emit(e);
+    
+  }
+   
+  
 
 }

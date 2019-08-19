@@ -1,3 +1,13 @@
 .main{
     margin-top: 10px;
 }
+
+.choice-selected{
+    border: 2px #20397c solid;
+    background-color: #20397c;
+    color: white;
+  }
+
+  .question-header{
+      min-height: 100px;
+  }

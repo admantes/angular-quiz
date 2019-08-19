@@ -2,7 +2,19 @@
 
 <app-header></app-header>
 
-<app-main [choices]="choices" [answers]="answers" [questionIndex]="questionIndex"></app-main>
+<app-main
+    [choices]="choices" 
+    [answers]="answers"
+    [questionIndex]="questionIndex"
+    (clickAnswer)="clickAnswer($event)"
+    [selectedIndex]="selectedIndex"
+    [finished]="finished"
+    [totalQuestions]="totalQuestions"
+    >
+</app-main>
 
-<app-footer (nextQuestion)="nextQuestion($event)"></app-footer>
+<app-footer (nextQuestion)="nextQuestion($event)"
+   [totalQuestions]="totalQuestions"
+   [questionIndex]="questionIndex"
+></app-footer>
 </div>
