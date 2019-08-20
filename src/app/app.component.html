@@ -2,7 +2,9 @@
 
 <app-header></app-header>
 
+<div class="middle">
 <app-main
+    [questions]="questions"
     [choices]="choices" 
     [answers]="answers"
     [questionIndex]="questionIndex"
@@ -10,11 +12,19 @@
     [selectedIndex]="selectedIndex"
     [finished]="finished"
     [totalQuestions]="totalQuestions"
+    *ngIf="!finished"
     >
 </app-main>
 
+<app-summary *ngIf="finished"
+   [score]="score"
+   [totalQuestions]="totalQuestions"
+></app-summary>
+</div>
 <app-footer (nextQuestion)="nextQuestion($event)"
    [totalQuestions]="totalQuestions"
    [questionIndex]="questionIndex"
+   [finished]="finished"
+   
 ></app-footer>
 </div>

@@ -7,6 +7,7 @@ import * as Webcam from 'webcamjs';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  @Input() questions;
   @Input() choices;
   @Input() answers;
   @Input() questionIndex;

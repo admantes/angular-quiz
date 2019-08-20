@@ -11,3 +11,7 @@
   .question-header{
       min-height: 100px;
   }
+
+  .question-text{
+      background-color: #e2e3e5;
+  }

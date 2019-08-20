@@ -9,6 +9,7 @@ export class FooterComponent implements OnInit {
   @Output() nextQuestion: EventEmitter<number>  = new EventEmitter();
 @Input() totalQuestions;
 @Input() questionIndex;
+@Input() finished;
 
   constructor() { }
 

@@ -6,7 +6,8 @@
                        <h5> admantes@gmail.com</h5>
                       </div>
                       <div class="col-8 text-right ">                            
-                            <button (click)="onNextQuestion()" type="button" class="btn btn-primary">Next Question</button>
+                            <button (click)="onNextQuestion()" 
+                            type="button" class="btn btn-primary"> {{ finished ? "Retake the Quiz" : "Submit" }}</button>
                       </div>
                 </div>
                     
