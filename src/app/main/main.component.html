@@ -6,7 +6,9 @@
                        <!--  <img class="card-img-top" src="https://cdn.cultofmac.com/wp-content/uploads/2017/10/Screen-Shot-2017-10-27-at-10.23.34-AM-400x227.jpg" alt="Card image cap"> -->
                        
                         <div class="card-body">
-						<div id="my_camera" class="text-center"> Camera goes here</div>
+                            <div *ngIf="webCamError" class="text-center text-danger"> Webcam is not found </div>
+                          <div id="my_camera" class="text-center"> Camera goes here</div>
+                         
                           <h5 class="card-title">Web Camera</h5>
                           <p class="card-text">This test requires you to enable your webcam to facilitate taking snapshots at certain times.</p>
                        
@@ -16,17 +18,7 @@
                     
           </div>
           <div class="col-8  ">
-               <!-- <ul class="list-group" >
-                        <li 
-                        *ngFor="let choice of choices[questionIndex]; let i=index;"
-                        class="list-group-item choice"
-                        [attr.id]="'choice'+i" 
-                        (click)="clickChoice($event)"                      
-                        [class.choice-selected]="selectedIndex==i"
-                        > {{choice}}</li>                      
-                  
-                      </ul>-->
-
+            
                       <div class="card shadow" >
                         <div class="card-header  bg-secondary text-white">
                              <h6> Question {{ questionIndex + 1 }} of {{ totalQuestions }} </h6>

@@ -14,8 +14,9 @@ export class MainComponent implements OnInit {
   @Input() totalQuestions;
   @Input() finished;
   @Output() clickAnswer: EventEmitter<object>  = new EventEmitter();
- 
   @Input() selectedIndex;
+
+  webCamError;
 
   constructor() { 
    
@@ -25,13 +26,35 @@ export class MainComponent implements OnInit {
   enableCam(){
     //alert("setting webcam");
 
-    Webcam.set({
-			width: 240,
-			height: 220,
-			image_format: 'jpeg',
-			jpeg_quality: 90
-		});
-		Webcam.attach( '#my_camera' );
+     
+
+      Webcam.set({
+        width: 240,
+        height: 220,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+      });
+      
+      Webcam.on( 'error', function(err) {
+        // an error occurred (see 'err')
+        this.webCamError = true;
+      } );
+
+      let w = Webcam.attach( '#my_camera' );
+     
+      if(w){
+       // alert("ok");
+      }else{
+        this.webCamError = true;
+        //alert("not ok");
+      }
+
+     
+    
+    
+
+    
+    
   }
 
  
