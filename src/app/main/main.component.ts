@@ -45,7 +45,7 @@ export class MainComponent implements OnInit {
       if(w){
        // alert("ok");
       }else{
-        this.webCamError = true;
+        //this.webCamError = true;
         //alert("not ok");
       }
 
