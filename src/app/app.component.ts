@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angu-quiz';
   questions;
   choices;
@@ -17,9 +18,9 @@ export class AppComponent {
   answered;
   score;
   
-  constructor(){
+  constructor( private http:HttpClient ){
     this.questionIndex = 0;
-    this.questions = [
+   /* this.questions = [
       "Which of the following is a reserved keyword in C#?",
       "Which of the following is correct about value type variables in C#?  ",
       "Which of the following converts a type to a double type in C#?",
@@ -54,12 +55,25 @@ export class AppComponent {
         "Internal"
       ],
       ];
-    this.totalQuestions = this.choices.length;
+
 
       this.answers = [ 3, 3, 1, 0, 0 ];
+      */
+
       this.finished = false;
       this.answered = false;
       this.score = 0;
+  }
+
+  ngOnInit(){
+    this.http.get<Object>( '../assets/questions.json').subscribe(
+      data => {
+        this.questions = data.questions;
+        this.choices = data.choices;
+        this.answers = data.answers;
+        this.totalQuestions = this.choices.length;
+      }
+    );
   }
 
   resetQuiz(){
